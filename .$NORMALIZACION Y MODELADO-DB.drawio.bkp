@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-04-12T23:02:51.972Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="h3hpP7qF8HgINKm4-FMs" version="21.1.2" type="device">
+<mxfile host="Electron" modified="2023-04-12T23:02:43.393Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="TdYvhaZIZ6sUmp7yMOdN" version="21.1.2" type="device">
   <diagram name="Página-1" id="8CF0Q0QWtExZTX1O9rfW">
     <mxGraphModel dx="1122" dy="2435" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
@@ -628,8 +628,7 @@
         <mxCell id="JTOW6ajnWpaqHKfrbv2t-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="qQ7JCVqUa35sdPKx2-S9-80" target="PAi8oHcWn7Akl2B9511x-99">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="230" y="110" />
-              <mxPoint x="190" y="110" />
+              <mxPoint x="190" y="100" />
               <mxPoint x="190" y="170" />
               <mxPoint x="90" y="170" />
               <mxPoint x="90" y="310" />

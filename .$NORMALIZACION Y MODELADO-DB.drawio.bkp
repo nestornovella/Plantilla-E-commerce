@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-04-13T17:52:06.936Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="eCB-R36mfd68xA0peXlN" version="21.1.2" type="device">
+<mxfile host="Electron" modified="2023-04-13T17:52:02.247Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="V-t8BVRyOhjD_TFZxCSI" version="21.1.2" type="device">
   <diagram name="Página-1" id="8CF0Q0QWtExZTX1O9rfW">
     <mxGraphModel dx="1095" dy="1637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
@@ -590,7 +590,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="JTOW6ajnWpaqHKfrbv2t-18" value="Transaction" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;strokeColor=#2D7600;fontSize=16;fillColor=#60a917;fontColor=#000000;rounded=1;gradientColor=default;" parent="1" vertex="1">
-          <mxGeometry x="970" y="180" width="120" height="150" as="geometry" />
+          <mxGeometry x="930" y="190" width="120" height="150" as="geometry" />
         </mxCell>
         <mxCell id="JTOW6ajnWpaqHKfrbv2t-19" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=16;" parent="JTOW6ajnWpaqHKfrbv2t-18" vertex="1">
           <mxGeometry y="30" width="120" height="40" as="geometry" />

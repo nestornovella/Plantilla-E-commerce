@@ -9,10 +9,12 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     },
     full_name: {
       type: DataTypes.STRING,
+      allowNull:false
     },
     image: {
       type: DataTypes.STRING
@@ -21,7 +23,8 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     email: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     },
     phone: {
       type: DataTypes.INTEGER,

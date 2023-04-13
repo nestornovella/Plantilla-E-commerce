@@ -14,7 +14,7 @@ const sequelize = new Sequelize(process.env.SEQUELIZE_URL,{
 
 // traer modelos
 fs.readdirSync(path.join(__dirname, "src", "models"))
-.filter(dir => dir.indexOf('.') != 0 && dir.slice(-3)=== ".js")
+.filter(dir => dir.indexOf('.') != 0 && dir.slice(-3) === ".js")
 .forEach(dir => require(path.join(__dirname, "src", "models", dir))(sequelize))
 
 

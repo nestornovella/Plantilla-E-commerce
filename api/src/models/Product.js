@@ -10,7 +10,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     stock: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
+      allowNull:false
     },
     sold_product: {
       type: DataTypes.INTEGER
@@ -20,7 +22,7 @@ module.exports = (sequelize) => {
     },
     status: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: true
     },
     
   });

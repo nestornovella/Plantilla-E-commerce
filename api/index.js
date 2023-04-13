@@ -7,9 +7,12 @@ const PORT = process.env.PORT || 3001
 
 const server = express()
 server.use(morgan('dev'))
+server.use(express.json())
 server.use(cors())
 
 server.use("/", router)
+
+
 
 
 server.listen(PORT, connection.sync({force:true}).then(()=> console.info(`the port is listen in port ${PORT}, http://localhost:3001`)))

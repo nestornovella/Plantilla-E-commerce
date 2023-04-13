@@ -25,11 +25,19 @@ models.forEach(model => model(sequelize))
 
 const {Category, Product, Response, Review, Shoping_cart, Transaction, User } = sequelize.models
 
-Transaction.hasOne(User, {foreignKey:{name: "User_id"}}) //transaccion pertenece a usuario
-User.hasMany(Transaction)                              //tiene muchas transacciones
+Transaction.belongsTo(User, {foreignKey:{name: "User_id"}}) //transaccion pertenece a usuario
+User.hasMany(Transaction, {foreignKey:{name: "User_id"}})                              //tiene muchas transacciones
 
 Transaction.belongsToMany(Product, {through:"products-transactions"}) //relacion muchos a muchos
 Product.belongsToMany(Transaction, {through:"products-transactions"}) // relacion muchos amuchos
+
+User.hasOne(Shoping_cart)                                              //selacion 1 a 1
+Shoping_cart.belongsTo(User)  
+
+Shoping_cart.belongsToMany(Product, {through: "cart-products"})    //relacion muchos a muchos
+Product.belongsToMany(Shoping_cart, {through: "cart-products"})
+
+
 
 
 console.log(sequelize.models)

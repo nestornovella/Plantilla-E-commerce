@@ -21,22 +21,30 @@ fs.readdirSync(path.join(__dirname, "src", "models"))
 //inyeccion de sequelize
 models.forEach(model => model(sequelize))
 
-//muchos a muchos
-
 const {Category, Product, Response, Review, Shoping_cart, Transaction, User } = sequelize.models
 
-Transaction.belongsTo(User, {foreignKey:{name: "User_id"}}) //transaccion pertenece a usuario
-User.hasMany(Transaction, {foreignKey:{name: "User_id"}})                              //tiene muchas transacciones
+//============>> RELACIONES <<============\\
 
-Transaction.belongsToMany(Product, {through:"products-transactions"}) //relacion muchos a muchos
-Product.belongsToMany(Transaction, {through:"products-transactions"}) // relacion muchos amuchos
+User.hasOne(Shoping_cart)     // relacion 1 - 1 y se usa 
+Shoping_cart.belongsTo(User)  // en combinacion con ".belongs to"
 
-User.hasOne(Shoping_cart)                                              //selacion 1 a 1
-Shoping_cart.belongsTo(User)  
+User.hasMany(Transaction, {foreignKey:{name: "User_id"}})    //tiene muchas transacciones
+Transaction.belongsTo(User, {foreignKey:{name: "User_id"}}) //transaccion pertenece a un usuario
 
-Shoping_cart.belongsToMany(Product, {through: "cart-products"})    //relacion muchos a muchos
+User.hasMany(Review);     // un usuario tiene muchas review y 
+Review.belongsTo(User);   // una review solo pertenece a un usuario
+
+Product.hasMany(Review);
+Review.belongsTo(Product);
+
+Product.belongsToMany(Category, {through: "product-category"}); //relacion muchos a muchos
+Category.belongsToMany(Product, {through: "product-category"});
+
+Product.belongsToMany(Transaction, {through:"products-transactions"}) 
+Transaction.belongsToMany(Product, {through:"products-transactions"}) 
+
 Product.belongsToMany(Shoping_cart, {through: "cart-products"})
-
+Shoping_cart.belongsToMany(Product, {through: "cart-products"})    
 
 
 

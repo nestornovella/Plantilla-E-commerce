@@ -46,7 +46,11 @@ Transaction.belongsToMany(Product, {through:"products-transactions"})
 Product.belongsToMany(Shoping_cart, {through: "cart-products"})
 Shoping_cart.belongsToMany(Product, {through: "cart-products"})    
 
+Response.hasOne(Review);
+Review.belongsTo(Response);
 
+Response.hasOne(User);
+User.belongsTo(Response);
 
 console.log(sequelize.models)
 module.exports = {

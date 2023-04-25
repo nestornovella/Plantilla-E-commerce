@@ -21,7 +21,7 @@ fs.readdirSync(path.join(__dirname, "src", "models"))
 //inyeccion de sequelize
 models.forEach(model => model(sequelize))
 
-const {Category, Product, Response, Review, Shoping_cart, Transaction, User } = sequelize.models
+const {Category, Product, Message, Review, Shoping_cart, Transaction, User } = sequelize.models
 
 //============>> RELACIONES <<============\\
 
@@ -44,13 +44,14 @@ Product.belongsToMany(Transaction, {through:"products-transactions"})
 Transaction.belongsToMany(Product, {through:"products-transactions"}) 
 
 Product.belongsToMany(Shoping_cart, {through: "cart-products"})
-Shoping_cart.belongsToMany(Product, {through: "cart-products"})    
+Shoping_cart.belongsToMany(Product, {through: "cart-products"}) 
 
-Response.hasOne(Review);
-Review.belongsTo(Response);
+User.hasMany(Message, { as: 'senderMessages', foreignKey: 'senderId' });
+User.hasMany(Message, { as: 'recipientMessages', foreignKey: 'recipientId' });
 
-Response.hasOne(User);
-User.belongsTo(Response);
+Message.belongsTo(User, { as: 'sender', foreignKey: 'User-senderId', targetKey: 'id' });
+Message.belongsTo(User, { as: 'recipient', foreignKey: 'User-recipientId', targetKey: 'id' });
+
 
 console.log(sequelize.models)
 module.exports = {

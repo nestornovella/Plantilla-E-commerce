@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("Response", {
+  sequelize.define("Message", {
 
     response: {
       type: DataTypes.TEXT,

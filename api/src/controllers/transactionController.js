@@ -1,9 +1,9 @@
 const axios = require("axios");
-const { Message } = require("../../db");
+const { Transaction } = require("../../db");
 
 module.exports = {
 
-  getMessage: async (req, res, next) => {
+  getTransaction: async (req, res, next) => {
     try {
       throwError("no funciona");
     } catch (error) {
@@ -11,7 +11,7 @@ module.exports = {
     }
   },
 
-  postMessage: async (req, res, next) => {
+  postTransaction: async (req, res, next) => {
     try {
 
     } catch (error) {
@@ -19,7 +19,7 @@ module.exports = {
     }
   },
 
-  putMessage: async (req, res, next) => {
+  putTransaction: async (req, res, next) => {
     try {
       
     } catch (error) {

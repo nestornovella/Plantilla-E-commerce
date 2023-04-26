@@ -1,8 +1,11 @@
 const axios = require("axios");
 const { Router } = require("express");
+const { getTransaction, postTransaction, putTransaction } = require("../controllers/transactionController");
 
 const router = Router();
 
-//router.get();
+router.get('/', getTransaction);
+router.post('/', postTransaction);
+router.put('/', putTransaction);
 
 module.exports = router

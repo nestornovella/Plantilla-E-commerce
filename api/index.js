@@ -17,7 +17,7 @@ server.use((err, req, res, next)=>{
     const message = err.message || err
     res.status(status).json({status: 'error', message})
     next()
-})
+}) 
 
 
 

@@ -23,4 +23,12 @@ module.exports = {
       next(error);
     }
   },
+
+  putUser: async (req, res, next) => {
+    try {
+      
+    } catch (error) {
+      next(error)
+    }
+  }
 };

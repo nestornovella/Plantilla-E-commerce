@@ -1,15 +1,16 @@
 const { User } = require('../../db')
 
+
 function throwError (message){
     throw message
 }
 
 
 
-module.exports = {
-    createUser: async (req, res)=>{
-        
 
+module.exports = {
+    postUser: async (req, res, next)=>{
+        
         const { email } = req.body
         try {
             const emailVerify = await User.findAll({where:{email}})
@@ -24,11 +25,18 @@ module.exports = {
                 newUser
             })
 
+        } catch (error){
+            next(error)
+        }
+    },
+
+    getUser: async (req, res, next)=>{
+        
+        try {
+            throwError("no funciona")
+            
         } catch (error) {
-            res.status(500).json({
-                status: 'error',
-                error
-            })   
+            next(error)
         }
     }
 }

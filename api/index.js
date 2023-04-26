@@ -1,24 +1,25 @@
-const express = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
-const routes = require("./src/routes/index");
-const { connection } = require("./db");
-const PORT = process.env.PORT || 3001;
+const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+const router = require('./src/routes/index')
+const { connection } = require('./db')
+const PORT = process.env.PORT
 
 const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
 
-server.use("/", routes);
+server.use("/", router);
 
-server.listen(
-  PORT,
-  connection
-    .sync({ force: true })
-    .then(() =>
-      console.info(`the port is listen in port ${PORT}, http://localhost:3001`)
-    )
-);
+server.use((err, req, res, next)=>{
+    const status = err.status || 500
+    const message = err.message || err
+    res.status(status).json({status: 'error', message})
+    next()
+})
 
-module.exports = server;
+
+
+
+server.listen(PORT, connection.sync({force:true}).then(()=> console.info(`the port is listen in port ${PORT}, http://localhost:3001/user`)))

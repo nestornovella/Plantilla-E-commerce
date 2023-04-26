@@ -1,9 +1,7 @@
 const {Router} = require('express')
 
-const route = Router()
+const router = Router()
 
 
 
-
-
-module.exports = route
+module.exports = router

@@ -15,6 +15,6 @@ router.use('/category', categoryRoutes);
 router.use('/message', messageRoutes);
 router.use('/product', productRoutes);
 router.use('/review', reviewRoutes);
-router.use('/shoping', shoppingRoutes);
+router.use('/shopping', shoppingRoutes);
 
 module.exports = router

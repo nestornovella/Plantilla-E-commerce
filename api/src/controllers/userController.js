@@ -15,7 +15,7 @@ module.exports = {
         try {
             const emailVerify = await User.findAll({where:{email}})
 
-            if(!email){throwError('this email is required')}
+            if(!email){throwError('this email is required.')}
             else if(emailVerify) throwError('this email is all ready exist')
             
             const newUser = await User.create(req.body)

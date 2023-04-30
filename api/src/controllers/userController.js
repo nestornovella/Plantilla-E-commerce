@@ -77,4 +77,15 @@ module.exports = {
       next(error);
     }
   },
+
+  deleteUser: async (req, res, next) => {
+    const id = req.params.id
+    try {
+      let deletedUser = await User.findByPk(id);
+      const userDeleted = await deletedUser.destroy({where: {id: id}});
+      res.status(200).send('User deleted');
+    } catch (error) {
+      next(error)
+    }
+  }
 };

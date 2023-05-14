@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', getMessage);
 router.post('/', postMessage);
-router.put('/', putMessage);
+router.put('/:id', putMessage);
 
 module.exports = router

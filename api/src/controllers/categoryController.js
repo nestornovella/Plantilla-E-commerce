@@ -15,7 +15,7 @@ module.exports = {
   postCategory: async (req, res, next) => {
     const { name } = req.body;
     try {
-      const postCategory = await Category.findOrCreate({where: {name: name}});
+      const postCategory = await Category.create({where: {name: name}});
       res.status(200).json(postCategory);
       
     } catch (error) {

@@ -40,7 +40,7 @@ module.exports = {
     try {
       let searchMessage = await Message.findByPk(id);
       const delMessage = await searchMessage.destroy({where: {id: id}});
-      res.status(200).json(delMessage);
+      res.status(200).send("Message deleted");
     } catch (error) {
       next(error)
     }

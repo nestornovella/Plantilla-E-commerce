@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
     comment: {
       type: DataTypes.TEXT,
     },
-    raiting:{
+    rating:{
       type:DataTypes.FLOAT,
       defaultValue: 0,
       allowNull:false

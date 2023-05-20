@@ -35,16 +35,24 @@ module.exports = {
 
   postProduct: async (req, res, next) => {
     const { image, name, stock, sold_product, price } = req.body;
+
     try {
-      const post = await Product.create()
+      const prodtc = await Product.findAll({where: {name: name}});
+      const postProdct = await Product.create({ image, name, stock, sold_product, price });
+      res.status(200).json(postProdct);
     } catch (error) {
       next(error);
     }
   },
 
   putProduct: async (req, res, next) => {
+    const { id } = req.params;
+    const { image, name, stock, sold_product, price, status } = req.body;
+
     try {
-      
+      const data = await Product.findOne({id});
+      const response = await data.update({ image, name, stock, sold_product, price, status });
+      res.status(200).send(response);
     } catch (error) {
       next(error);
     }

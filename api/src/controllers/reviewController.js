@@ -15,7 +15,7 @@ module.exports = {
   postReview: async (req, res, next) => {
     const { comment, rating, UserId, ProductId } = req.body;
     try {
-      const data = await Review.create({comment, rating, UserId, ProductId});
+      const data = await Review.create(req.body);
       res.status(200).json(data);
     } catch (error) {
       next(error);
@@ -27,7 +27,7 @@ module.exports = {
     const { comment, rating } = req.body;
     try {
       const data = await Review.findByPk(id);
-      const response = await data.update({comment, rating});
+      const response = await data.update(req.body);
       res.status(200).json(response);
     } catch (error) {
       next(error);

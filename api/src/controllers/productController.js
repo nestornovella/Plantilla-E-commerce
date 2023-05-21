@@ -21,11 +21,10 @@ module.exports = {
     const { id } = req.params;
     try {
       const prodct = await Product.findByPk(id, {
-        include: [{
+        include: {
           model: Category,
-          attributes: ["id", "name", "type_product"],
-          through: {attributes: []}
-        }]
+          attributes: ["id", "name", "type_product"]
+        }
       });
       res.status(200).json(prodct);
     } catch (error) {
@@ -38,7 +37,7 @@ module.exports = {
 
     try {
       const prodtc = await Product.findAll({where: {name: name}});
-      const postProdct = await Product.create({ image, name, stock, sold_product, price });
+      const postProdct = await Product.create(req.body);
       res.status(200).json(postProdct);
     } catch (error) {
       next(error);
@@ -51,7 +50,7 @@ module.exports = {
 
     try {
       const data = await Product.findOne({id});
-      const response = await data.update({ image, name, stock, sold_product, price, status });
+      const response = await data.update(req.body);
       res.status(200).send(response);
     } catch (error) {
       next(error);

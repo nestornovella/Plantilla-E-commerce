@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', getTransaction);
 router.post('/', postTransaction);
-router.put('/', putTransaction);
+router.put('/:id', putTransaction);
 
 module.exports = router

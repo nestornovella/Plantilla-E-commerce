@@ -28,7 +28,7 @@ module.exports = {
     const { products_amount, total, UserId } = req.body;
     try {
       const data = await Shoping_cart.findByPk(id);
-      const response = await data.update({products_amount, total, UserId});
+      const response = await data.update(req.body);
       res.status(200).json(response);
     } catch (error) {
       next(error)

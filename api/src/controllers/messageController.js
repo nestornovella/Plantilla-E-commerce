@@ -16,7 +16,7 @@ module.exports = {
   postMessage: async (req, res, next) => {
     const { response, userId, senderId, recipientId } = req.body;
     try {
-      const create = await Message.create({ response, userId, senderId, recipientId });
+      const create = await Message.create(req.body);
       res.status(200).json(create);
     } catch (error) {
       next(error);

@@ -70,7 +70,7 @@ module.exports = {
     const {full_name, email, password, image, addres, phone, country, city, is_admin, status} = req.body
     try {
       let putUser = await User.findByPk(id);
-      let updatedUser = await putUser.update({full_name, email, password, image, addres, phone, country, city, is_admin, status})
+      let updatedUser = await putUser.update(req.body)
 //console.log(updatedUser);
       res.status(200).json(updatedUser);
     } catch (error) {

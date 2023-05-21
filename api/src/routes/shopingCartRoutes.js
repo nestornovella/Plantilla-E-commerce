@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/', getShopping);
 router.post('/', postShopping);
-router.put('/', putShopping);
+router.put('/:id', putShopping);
 
 module.exports = router

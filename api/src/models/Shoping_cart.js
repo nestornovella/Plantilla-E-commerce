@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
 
     id: {
       type: DataTypes.UUID,
-        allowNull: false,
+      allowNull: false,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
@@ -15,5 +15,9 @@ module.exports = (sequelize) => {
     total: {
       type: DataTypes.FLOAT,
     },
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   },{ timestamps: false });
 };

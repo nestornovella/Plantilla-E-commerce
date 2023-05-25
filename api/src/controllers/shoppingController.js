@@ -9,25 +9,29 @@ module.exports = {
   },
 
   postShopping : async (req, res) => {
-    const { products_amount } = req.body;
+    const { products_amount, total, UserId } = req.body;
     try {
       if (!products_amount) {
         throw "no se pasaron parametros";
       }
-      console.log(req.body);
+  //console.log(req.body);
       const cart = await Shoping_cart.create(req.body);
       res.status(200).json(cart);
       
     } catch (error) {
-      res.status(400).json(error);
+      next(error)
     }
   },
 
   putShopping : async (req, res, next) => {
+    const { id } = req.params;
+    const { products_amount, total, UserId } = req.body;
     try {
-      
+      const data = await Shoping_cart.findByPk(id);
+      const response = await data.update(req.body);
+      res.status(200).json(response);
     } catch (error) {
       next(error)
     }
-  }
+  },
 }

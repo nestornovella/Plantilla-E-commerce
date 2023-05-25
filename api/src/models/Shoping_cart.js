@@ -15,5 +15,9 @@ module.exports = (sequelize) => {
     total: {
       type: DataTypes.FLOAT,
     },
-  },{ timestamps: false });
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
+  },{ timestamps: false }); 
 };

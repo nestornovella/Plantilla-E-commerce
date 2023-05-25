@@ -43,7 +43,7 @@ module.exports = {
     try {
       const users = await User.findOrCreate({
         where: {
-          full_name: full_name,
+          email: email,
         },
         defaults: {
           full_name,
@@ -58,7 +58,7 @@ module.exports = {
           city,
         },
       });
-//console.log(users)
+//console.log(users.length)
       res.status(200).json(users);
     } catch (error) {
       next(error);
@@ -67,14 +67,25 @@ module.exports = {
 
   putUser: async (req, res, next) => {
     const { id } = req.params;
-    const {full_name, email, password, image, addres, phone, country, city} = req.body
+    const {full_name, email, password, image, addres, phone, country, city, is_admin, status} = req.body
     try {
       let putUser = await User.findByPk(id);
-      let updatedUser = await putUser.update({full_name, email, password, image, addres, phone, country, city})
+      let updatedUser = await putUser.update(req.body)
 //console.log(updatedUser);
       res.status(200).json(updatedUser);
     } catch (error) {
       next(error);
     }
   },
+
+  deleteUser: async (req, res, next) => {
+    const id = req.params.id
+    try {
+      let deletedUser = await User.findByPk(id);
+      const userDeleted = await deletedUser.destroy({where: {id: id}});
+      res.status(200).send('User deleted');
+    } catch (error) {
+      next(error)
+    }
+  }
 };

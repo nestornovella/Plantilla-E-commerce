@@ -17,20 +17,23 @@ fs.readdirSync(path.join(__dirname, "src", "models"))
 .forEach(dir => models.push(require(path.join(__dirname, "src", "models", dir))))
 
 //inyeccion de sequelize
-models.forEach(model => model(sequelize))
+models.forEach(model => model(sequelize));
 
-const {Category, Product, Message, Review, Shoping_cart, Transaction, User } = sequelize.models
+const {Category, Product, Message, Review, Shoping_cart, Transaction, User } = sequelize.models;
 
-//============>> RELACIONES <<============\\
+//==========================>> RELACIONES <<===========================\\
 
-User.hasOne(Shoping_cart)     // relacion 1 - 1 y se usa 
-Shoping_cart.belongsTo(User)  // en combinacion con ".belongs to"
+User.hasOne(Shoping_cart);     // relacion 1 - 1 y se usa 
+Shoping_cart.belongsTo(User);  // en combinacion con ".belongs to"
 
-User.hasMany(Transaction, {foreignKey:{name: "User_id"}})    //tiene muchas transacciones
-Transaction.belongsTo(User, {foreignKey:{name: "User_id"}}) //transaccion pertenece a un usuario
+User.hasMany(Transaction, {foreignKey:{name: "User_id"}});    //tiene muchas transacciones
+Transaction.belongsTo(User, {foreignKey:{name: "User_id"}}); //transaccion pertenece a un usuario
 
 User.hasMany(Review);     // un usuario tiene muchas review y 
 Review.belongsTo(User);   // una review solo pertenece a un usuario
+
+User.belongsToMany(Product, {through: "user-product"});
+Product.belongsToMany(User, {through: "user-product"});
 
 Product.hasMany(Review);
 Review.belongsTo(Product);
@@ -38,11 +41,11 @@ Review.belongsTo(Product);
 Product.belongsToMany(Category, {through: "product-category"}); //relacion muchos a muchos
 Category.belongsToMany(Product, {through: "product-category"});
 
-Product.belongsToMany(Transaction, {through:"products-transactions"}) 
-Transaction.belongsToMany(Product, {through:"products-transactions"}) 
+Product.belongsToMany(Transaction, {through:"products-transactions"}); 
+Transaction.belongsToMany(Product, {through:"products-transactions"}); 
 
-Product.belongsToMany(Shoping_cart, {through: "cart-products"})
-Shoping_cart.belongsToMany(Product, {through: "cart-products"}) 
+Product.belongsToMany(Shoping_cart, {through: "cart-products"});
+Shoping_cart.belongsToMany(Product, {through: "cart-products"}); 
 
 User.hasMany(Message, { as: 'senderMessages', foreignKey: 'senderId' });
 User.hasMany(Message, { as: 'recipientMessages', foreignKey: 'recipientId' });

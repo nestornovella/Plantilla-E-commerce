@@ -1,11 +1,12 @@
 const axios = require("axios");
 const { Router } = require("express");
-const { getProduct, postProduct, putProduct } = require("../controllers/productController");
+const { getAllProduct, postProduct, putProduct, getProductById } = require("../controllers/productController");
 
 const router = Router();
 
-router.get('/', getProduct);
+router.get('/', getAllProduct);
+router.get('/:id', getProductById);
 router.post('/', postProduct);
-router.put('/', putProduct);
+router.put('/:id', putProduct);
 
 module.exports = router

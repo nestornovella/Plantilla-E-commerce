@@ -2,10 +2,11 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define("Review", {
+    
     comment: {
       type: DataTypes.TEXT,
     },
-    raiting:{
+    rating:{
       type:DataTypes.FLOAT,
       defaultValue: 0,
       allowNull:false
